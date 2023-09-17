@@ -6,6 +6,5 @@ const unconfirmedCardSchema = mongoose.Schema({
     likes: {type: Number},
     dislikes: {type: Number},
     user: { type: String },
-    userId: {type: String},
 })
 module.exports = mongoose.model('UnconfirmedCard', unconfirmedCardSchema)

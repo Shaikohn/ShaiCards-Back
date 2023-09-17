@@ -13,7 +13,7 @@ const getUnconfirmedCards = async(req, res, next) => {
 
 const postUnconfirmedCard = async(req, res) => {
     try {
-        const { text, type, user, userId } = req.body
+        const { text, type, user } = req.body
         
         if(text.length < 4) return res.status(400).json({message: "Debe tener un mínimo de 4 caracteres!"})
         if(text.length > 200) return res.status(400).json({message: "Debe tener un máximo de 200 caracteres!"})
@@ -22,8 +22,7 @@ const postUnconfirmedCard = async(req, res) => {
         const unconfirmedCard = new UnconfirmedCard ({
             text,
             type,
-            user,
-            userId,
+            user
         })
         unconfirmedCard.save()
         res.status(200).json(unconfirmedCard)
